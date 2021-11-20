@@ -126,9 +126,10 @@ TASK 4
 ---------------------------------------------------------------------------------------------------------------
 '''
 
+'''
 def inplace_insertion_sort(array):
     index=0 
-    '''
+    
     for element in range(len(array[index:])):
         
             if array[index]>array[element]: 
@@ -136,7 +137,7 @@ def inplace_insertion_sort(array):
                 array[element] = array[index]
                 array[index] = temp 
                 index+=1
-    '''
+    
     
     while(index < len(array)):
         index=0 
@@ -151,6 +152,7 @@ def inplace_insertion_sort(array):
 
 inplace_insertion_sort([4,6,8,2,9,5,1]) 
 
+
 # insertion sort with an output array 
 def insertion_sort(unsorted_array):  
     sorted_array = [] 
@@ -164,21 +166,99 @@ def insertion_sort(unsorted_array):
                     break                    
     print(f"our sorted array is:{sorted_array}")
     return sorted_array 
-# insertion_sort([4,6,8,2,9,5,1])
+insertion_sort([4,6,8,2,9,5,1])
+'''
+# not implemented yet
+#-------------------------------------------
 
-def selection_sort(array): 
-    index=0
-    for item in range(len(array)-1): 
-        if array[index]>array[item]: 
-            array.insert(index,array[item]) 
-            array.pop(array[item])
-        else: 
-            index+=1 
+
+'''
+TASK 5
+---------------------------------------------------------------------------------------------------------------
+'''
+
+
+def minimum(array): 
+    min_int = array[0]
+    for element in array: 
+        if min_int >= element: 
+            min_int = element 
+
+    print(f'the smallest element in the array is {min_int}')
+
+    return min_int 
+
+#minimum([4,6,8,2,9,5,1]) 
+
+def insert(array,x):
+    for i in range(len(array)): 
+        if array[i]<=x<=array[i+1]: 
+            array.insert(i,x)
             break
-    print(f"our sorted array is:{array}")
+    print(f"our array with the iserted item {x} is:{array}")
     return array 
 
-selection_sort([4,6,8,2,9,5,1])
+insert([1,2,3,4,5,6,8,9,10],7) 
+
+def merge(array1,array2):
+    i1 = 0
+    i2 = 0
+    merged_array=[]
+    while(i1<len(array1) and i2 < len(array2)): 
+        if i1 == len(array1)-1: 
+            for i in range(i2,len(array2)): 
+                merged_array.append(array2[i])
+                i2+=1
+            break
+
+        elif i2 == len(array2)-1: 
+            for i in range(i2,len(array1)): 
+                merged_array.append(array1[i])
+                i1+=1 
+            break
+
+        elif array1[i1] == array2[i2]: 
+            merged_array.append(array1[i1])
+            merged_array.append(array2[i2])
+            i1+=1
+            i2+=1
+        elif array1[i1] < array2[i2]: 
+            merged_array.append(array1[i1])
+            i1+=1
+        elif array2[i2] < array1[i1]: 
+            merged_array.append(array2[i2])
+            i2+=1
+    print(f"our merged array is {merged_array}")
+    return merged_array
+
+    
+
+merge([1,3,5,7,9,11,12,14,15,17],[2,4,6,8,10])
+
+'''
+Bonus exercises 
+---------------------------------------------------------------------------------------------------------------
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         
 
 
